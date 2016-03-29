@@ -4,10 +4,18 @@ const isSumPossible = require('./index');
 describe('isSumPossible', () => {
   describe('diagnostic test case', () => {
     it('returns true', () => {
-      const summableNumbers = [18, 55, 28, 31, 38, 11, 40, 21, 60, 62];
-      const sumTarget = 198;
-      const addendsTarget = 4;
+      const summableNumbers = [18, 55, 2, 28, 31, 38, 1, 40, 21, 60, 62];
+      const sumTarget = 199;
+      const addendsTarget = 5;
       expect(isSumPossible(summableNumbers, sumTarget, addendsTarget))
+        .toBe(true);
+    });
+
+    it('when we need many addends and the numbers are out of order', () => {
+      const summableNumbers = [1, 4, 6, 7, 8, 2, 3];
+      const sumTarget = 6;
+      const addendsTarget = 3;
+      expect(isSumPossible(summableNumbers, sumTarget, addendsTarget, true))
         .toBe(true);
     });
   });
@@ -38,10 +46,10 @@ describe('isSumPossible', () => {
     });
 
     it('when we need many addends and the numbers are out of order', () => {
-      const summableNumbers = [5, 1, 4, 2, 3];
-      const sumTarget = 9;
-      const addendsTarget = 3;
-      expect(isSumPossible(summableNumbers, sumTarget, addendsTarget))
+      const summableNumbers = [80, 230, 25, 4, 96, 1, 25, 500];
+      const sumTarget = 551;
+      const addendsTarget = 4;
+      expect(isSumPossible(summableNumbers, sumTarget, addendsTarget, true))
         .toBe(true);
     });
   });
